@@ -10,7 +10,7 @@ For all the information about the project, check **[this post](https://agarnung.
 
 **YouTube Channel:** [https://www.youtube.com/@agarnungm](https://www.youtube.com/@agarnungm)
 
-_Example_:
+_Examples_:
 
 <table style="width: 100%; border-collapse: collapse;">
   <tr>
