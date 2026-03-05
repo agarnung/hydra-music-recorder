@@ -2,7 +2,7 @@
 //   SISTEMA DE VISUALIZACIÓN DE BAJO - CONTROL DE RANGO
 // ============================================================================
 
-// 1. ¡DEFINE TU RANGO AQUÍ! 
+// 1. Definir el rango aquí
 // ---------------------------------------------------------
 const RANGO_INTERES = { 
   min: 10,  // Frecuencia mínima (Hz)
@@ -70,7 +70,7 @@ function initAudioStack() {
   audioCtx = new AudioContext();
 
   analyser = audioCtx.createAnalyser();
-  // Usamos 16384 para tener precisión incluso si eliges un rango muy pequeño (ej. 30-40hz)
+  // Usamos 16384 para tener precisión incluso si se elige un rango muy pequeño (ej. 30-40hz)
   analyser.fftSize = 16384; 
   analyser.smoothingTimeConstant = 0.0; // Reactividad inmediata
   analyser.minDecibels = -45;
@@ -173,7 +173,7 @@ function updateHUD() {
 }
 
 // ============================================================================
-//   7. HYDRA PATCH: "VIBRATING VOID" (Inspirado en tu original)
+//   7. HYDRA PATCH: "VIBRATING VOID" 
 // ============================================================================
 
 // Control de blend reactivo al bajo
@@ -184,19 +184,16 @@ function bassBlend() {
   return clamp(1 - ENGINE.val * 1.2, 0.5, 0.9)
 }
 
-speed = 0.5
-
-noise(3, 0.02)
-  .modulateScrollY(osc(0.5), () => bassBlend() * 0.3)
-  .color(
-    () => 0.1 - bassBlend() * 0.05,
-    () => 0.7 - bassBlend() * 0.08,
-    () => 0.5 - bassBlend() * 0.01
-  )
-  .colorama(0.1)
-  .luma(0.59, 0.1)
-  .modulatePixelate(noise(3), 500)
-  .blend(src(o0).scale(1.002), 0.9)
-  .out(o0)
+noise(3,0.1,7)
+.rotate(1,-0.1,-5).mask(shape(20))
+.colorama(0.5)
+.modulateScale(o0)
+.modulateScale(o0,1,)
+.blend(noise(2))
+.blend(o0)
+.blend(o0)
+.blend(o0)
+.rotate(()=>time*0.00001, bassBlend() * 0.0001)
+.out(o0)
 
 processingLoop();
