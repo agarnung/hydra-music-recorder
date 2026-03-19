@@ -106,10 +106,11 @@
 
 <script src="./audio-config.js"></script>
 <script src="https://unpkg.com/hydra-synth"></script>
+<script src="./hydra-shared.js"></script>
 <script src="./hydra.js"></script>
 <script>
 // ===================== GRABACIÓN DE VIDEO =====================
-// canvas ya está declarado en hydra.js, solo obtenemos la referencia
+// Referencia al canvas (hidra en hydra-shared + hydra.js)
 const recordBtn = document.getElementById("record-btn");
 const canvasElement = document.getElementById("hydra-canvas");
 let mediaRecorder = null;

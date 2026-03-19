@@ -1,2 +1,2 @@
-// Configuración de audio generada por serve.sh
-window.AUDIO_FILE = "sosiego.wav";
+// Configuración generada por serve.sh (modo live)
+window.AUDIO_FILE = "";
